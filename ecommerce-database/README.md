@@ -9,4 +9,4 @@ The following challenges will help boost your SQL skills.
 
 # Database ERD
 
-![]()
+![](https://github.com/lorcanrae/SQL-practice/blob/master/ecommerce-database/data/ecommercedb-erd.png?raw=true)
