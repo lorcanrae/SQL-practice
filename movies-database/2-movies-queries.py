@@ -2,7 +2,8 @@
 
 def detailed_movies(db):
     '''return the list of movies with their genres and director name'''
-    query = """SELECT m.title, m.genres, d.name
+    query = """
+SELECT m.title, m.genres, d.name
 FROM movies m
 JOIN directors d ON d.id = m.director_id
     """
@@ -12,7 +13,8 @@ JOIN directors d ON d.id = m.director_id
 
 def late_released_movies(db):
     '''return the list of all movies released after their director death'''
-    query = """SELECT m.title
+    query = """
+SELECT m.title
 FROM movies m
 JOIN directors d ON d.id = m.director_id
 WHERE m.start_year > d.death_year
@@ -24,11 +26,11 @@ WHERE m.start_year > d.death_year
 def stats_on(db, genre_name):
     '''return a dict of stats for a given genre'''
     query = f"""
-        SELECT COUNT(*), SUM(m.minutes)
-        FROM movies m
-        WHERE m.genres LIKE '{genre_name}'
+SELECT COUNT(*), SUM(m.minutes)
+FROM movies m
+WHERE m.genres LIKE ?
     """
-    db.execute(query)
+    db.execute(query, (genre_name,))
     rows = db.fetchall()
 
     results = {
@@ -85,5 +87,4 @@ LIMIT 5
 # if __name__ == '__main__':
 #     conn = sqlite3.connect('data/movies.sqlite')
 #     db = conn.cursor()
-#     movie_duration_buckets
-# (db)
+#     movie_duration_buckets(db)

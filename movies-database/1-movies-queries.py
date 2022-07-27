@@ -10,9 +10,11 @@ def directors_count(db):
 
 def directors_list(db):
     # return the list of all the directors sorted in alphabetical order
-    query = """SELECT d.name
-                FROM directors d
-                ORDER BY d.name"""
+    query = """
+SELECT d.name
+FROM directors d
+ORDER BY d.name
+    """
     db.execute(query)
     rows = db.fetchall()
     return [rows[i][0] for i in range(len(rows))]
@@ -21,7 +23,8 @@ def directors_list(db):
 def love_movies(db):
     # return the list of all movies which contain the exact word "love"
     # in their title, sorted in alphabetical order
-    query = """SELECT m.title
+    query = """
+SELECT m.title
 FROM movies m
 WHERE m.title LIKE '% love %'
 	OR m.title LIKE 'love %'
@@ -30,7 +33,8 @@ WHERE m.title LIKE '% love %'
     OR m.title LIKE '% love''%'
     OR m.title LIKE '%love,%'
     OR m.title LIKE 'love'
-ORDER BY m.title"""
+ORDER BY m.title
+    """
     db.execute(query)
     rows = db.fetchall()
     return [rows[i][0] for i in range(len(rows))]
@@ -38,11 +42,12 @@ ORDER BY m.title"""
 
 def directors_named_like_count(db, name):
     # return the number of directors which contain a given word in their name
-    query = f"""SELECT COUNT(d.name)
+    query = f"""
+SELECT COUNT(d.name)
 FROM directors d
-WHERE d.name LIKE '%{name}%'
-"""
-    db.execute(query)
+WHERE d.name LIKE '%?%'
+    """
+    db.execute(query, (name,))
     rows = db.fetchall()
     return int(rows[0][0])
 
@@ -50,11 +55,13 @@ WHERE d.name LIKE '%{name}%'
 def movies_longer_than(db, min_length):
     # return this list of all movies which are longer than a given duration,
     # sorted in the alphabetical order
-    query = f"""SELECT m.title
+    query = """
+SELECT m.title
 FROM movies m
-WHERE m.minutes > {min_length}
-ORDER BY m.title"""
-    db.execute(query)
+WHERE m.minutes > ?
+ORDER BY m.title
+    """
+    db.execute(query, (min_length,))
     rows = db.fetchall()
     return [rows[i][0] for i in range(len(rows))]
 
