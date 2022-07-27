@@ -82,10 +82,6 @@ movie_duration_buckets(db)
 - Implement `top_five_youngest_newly_directors` to get the top 5 youngest directors when directing their first movie.
 - This function returns a list of tuples in the form (`name`, `age_when_first_time_director`).
 
-## Tools
-
-SQL, SQLite, DBeaver
-
 ## Database ERD
 
 ![movies-erd](https://github.com/lorcanrae/SQL-practice/blob/master/movies-database/data/movies-erd.png?raw=true)
