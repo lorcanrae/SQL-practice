@@ -88,4 +88,4 @@ SQL, SQLite, DBeaver
 
 ## Database ERD
 
-[movies-erd](https://github.com/lorcanrae/SQL-practice/blob/master/movies-database/data/movies-erd.png?raw=true)
+![movies-erd](https://github.com/lorcanrae/SQL-practice/blob/master/movies-database/data/movies-erd.png?raw=true)
