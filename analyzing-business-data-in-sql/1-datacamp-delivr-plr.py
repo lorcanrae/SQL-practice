@@ -142,22 +142,3 @@ ORDER BY r.delivr_month ASC;
     db.execute(query)
     rows = db.fetchall()
     return rows
-
-def placeholder(db):
-    '''placeholder'''
-    query = '''
-
-    '''
-    db.execute(query)
-    rows = db.fetchall()
-    return rows
-
-
-def placeholder(db):
-    '''placeholder'''
-    query = '''
-
-    '''
-    db.execute(query)
-    rows = db.fetchall()
-    return rows
