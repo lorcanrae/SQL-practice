@@ -1,4 +1,4 @@
--- Revenue Queries
+-- REVENUE QUERIES
 
 -- Total spent per user_id
 SELECT SUM(meals.meal_price * orders.order_quantity) AS revenue
@@ -20,7 +20,7 @@ GROUP BY delivr_week
 ORDER BY delivr_week ASC;
 ----------------------------------------------------------
 
--- Cost and Common Table Expressions (CTE) Queries
+-- COST AND COMMON TABLE EXPRESSIONS (CTE) QUERIES
 
 -- Total cost to business
 SELECT SUM(m.meal_cost * s.stocked_quantity)

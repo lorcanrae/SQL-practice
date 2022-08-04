@@ -48,7 +48,7 @@ SELECT
 FROM kpi;
 ----------------------------------------------------------
 
--- Histograms
+-- HISTOGRAMS
 
 -- Revenue Histogram Data
 WITH user_revenues AS (
@@ -86,7 +86,7 @@ GROUP BY orders
 ORDER BY orders ASC;
 ----------------------------------------------------------
 
--- Buckets for bar graphs
+-- BUCKETS FOR BAR GRAPHS
 
 -- Bucketting users by revenue
 WITH user_revenues AS (
@@ -132,7 +132,7 @@ FROM user_orders
 GROUP BY order_group;
 ----------------------------------------------------------
 
--- Percentiles
+-- PERCENTILES
 
 -- Revenue quartiles and mean
 WITH user_revenues AS (
